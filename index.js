@@ -7,13 +7,19 @@
 // && (and) y
 // || (or) o (se cumple una o la otra)
 var probamosLampara = true
+
 while (probamosLampara = true){ 
-    var lamparaFunciona = prompt("La lampara funciona?")
+    alert("Prueba tu lampara")
+    var lamparaFunciona = prompt("La lampara funciona ? (responde si o no)")
+    
     while (lamparaFunciona !="si"){
+
             if (lamparaFunciona = true) {
-                var enchufada = prompt("La lampara esta enchufada?");
+                var enchufada = prompt("La lampara esta enchufada ? (responde si o no)");
+
                 if (enchufada == "si"){
-                    var foco = prompt("El foco esta quemado ?");
+                   var foco = prompt("El foco esta quemado ? (responde si o no)");
+
                     if (foco != "no"){
                         alert ("Cambia el foco");
                         break
@@ -28,7 +34,7 @@ while (probamosLampara = true){
                 }
             }
     } if (lamparaFunciona == "si"){
-            alert ("Tu lampara funciona")
+            alert ("Felicidades !! Tu lampara funciona")
             break
     }
 }
