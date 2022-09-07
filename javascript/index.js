@@ -1,25 +1,22 @@
-// > menor que
-// < mayor que
-// >= mayor o igual
-// <= menor o igual
-// == igual que
-// != distinto de
-// !== comprueba si sus dos operandos son diferentes
-// && (and) y
-// || (or) o (se cumple una o la otra)
-
-// simulador de cuotas
-
+const david = {
+    nombre: "david",
+    apellido:"rodriguez",
+    dni: 1,
+    horario: "7:20hs"
+}
 reservas = [];
-
+reservas.push(david);
 console.log(reservas);
 
-function Persona(nombre,apellido,dni,horario){
-    this.nombre =nombre,
-    this.apellido= apellido,
-    this.dni = dni,
-    this.horario = horario
+class Persona {
+    constructor(nombre, apellido, dni, horario) {
+        this.nombre = nombre,
+        this.apellido = apellido,
+        this.dni = dni,
+        this.horario = horario;
+    }
 }
+
 
 option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 while (option != "1" && option != "2" && option != "3" && option != "0"){ 
@@ -48,28 +45,45 @@ while (option != "0"){
                         break;
                     case "4":
                         horario = "7:30hs";
-                        break
+                        break;
                 }
-                reservas.push(new Persona(nombre,apellido,dni,horario));
-                break
-            case "2":
-                const buscarDni = prompt("que dni buscas....");
-                const paso = reservas.find(elemento =>{
-                    return elemento.dni === buscarDni;
-                });
+                const nuevoUsuario = new Persona(nombre, apellido, dni, horario);
+                reservas.push(nuevoUsuario);
                 
-                alert("nombre: " + paso.nombre +"\n" + "apellido: "+paso.apellido + "\n" + "dni: " + paso.dni + "\n" + "cita alas: " + paso.horario);
-                console.log("nombre: " + paso.nombre + "\n" + "apellido: " + paso.apellido  + "\n" + "dni: " + paso.dni + "\n" + "cita alas: " + paso.horario);
                 break;
+            case "2":  
+
+                const buscarDni = prompt("Ingrese el dni de su reserva");
+                const filtrarDni = reservas.filter(reserva => reserva.dni == buscarDni );
+
+                console.log(typeof filtrarDni);
+                filtrarDni.forEach(dni => console.log(dni));
+                console.table(filtrarDni);
+                
+                if (filtrarDni == false){
+                    alert("no existe una reserva con ese dni");
+                    
+                    console.table(filtrarDni)
+                }else{
+                    alert("usted tiene una reserva"  );
+                    alert(buscarDni.Dni)
+                }
+                break; 
+                
+
+                
                 
             case "3": 
-                reservaEliminar = prompt("ingrese el dni de la reserva a elminar");
+                reservaEliminar = prompt("ingrese el dni de la reserva a cancelar");
 
-                const index = reservas.findIndex( x => x.dni === reservaEliminar );
+                const borrarDni = reservas.findIndex( elemento => elemento.dni === reservaEliminar );
+
+                console.table(borrarDni);
+                reservas.splice( borrarDni, 1 );
+                console.table( reservas );
+
                 alert("Su reserva fue cancelada");
-
-                reservas.splice( index, 1 );
-                console.log( reservas );
+                break;
 
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
-}alert("cerrando programa")
+}alert("cerrando programa");
