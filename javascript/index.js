@@ -2,18 +2,18 @@ const david = {
     nombre: "david",
     apellido:"rodriguez",
     dni: 1,
-    horario: "7:20hs"
+    dia: "7:20hs"
 }
 reservas = [];
 reservas.push(david);
 console.log(reservas);
 
 class Persona {
-    constructor(nombre, apellido, dni, horario) {
+    constructor(nombre, apellido, dni, dia) {
         this.nombre = nombre,
         this.apellido = apellido,
         this.dni = dni,
-        this.horario = horario;
+        this.dia = dia;
     }
 }
 
@@ -29,25 +29,28 @@ while (option != "0"){
                 nombre = prompt("Ingrese su nombre");
                 apellido = prompt("Ingrese su apellido");
                 dni = prompt("Ingrese su dni");
-                horario = prompt("Elija el horario:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
-                while (horario != "1" && horario != "2" && horario != "3" &&horario != "4"){
+                dia = prompt("Elija el dia:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
+                while (dia != "1" && dia != "2" && dia != "3" && dia != "4" && dia != "5"){
                     alert("ingrese una opcion correcta");
-                    horario = prompt("Elija el horario:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
-                }switch(horario){
+                    dia = prompt("Elija el dia:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
+                }switch(dia){
                     case "1":
-                        horario = "7:00hs";
+                        dia = "Lunes";
                         break
                     case "2":
-                        horario = "7:10hs";
+                        dia = "Martes";
                         break
                     case "3":
-                        horario = "7:20hs";
+                        dia = "Miercoles";
                         break;
                     case "4":
-                        horario = "7:30hs";
+                        dia = "Jueves";
+                        break;
+                    case "5":
+                        dia = "Viernes";
                         break;
                 }
-                const nuevoUsuario = new Persona(nombre, apellido, dni, horario);
+                const nuevoUsuario = new Persona(nombre, apellido, dni, dia);
                 reservas.push(nuevoUsuario);
                 
                 break;
@@ -66,7 +69,6 @@ while (option != "0"){
                     console.table(filtrarDni)
                 }else{
                     alert("usted tiene una reserva"  );
-                    alert(buscarDni.Dni)
                 }
                 break; 
                 
