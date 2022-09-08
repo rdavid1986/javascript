@@ -29,7 +29,7 @@ while (option != "0"){
                 nombre = prompt("Ingrese su nombre");
                 apellido = prompt("Ingrese su apellido");
                 dni = prompt("Ingrese su dni");
-                dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4.Jueves \n 5.");
+                dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4.Jueves \n 5.Viernes");
                 while (dia != "1" && dia != "2" && dia != "3" && dia != "4" && dia != "5"){
                     alert("ingrese una opcion correcta");
                     dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4. Jueves \n 5. Viernes");
@@ -62,34 +62,29 @@ while (option != "0"){
 
                 console.log(typeof filtrarDni);
                 filtrarDni.forEach(dni => console.log(dni));
-                console.table(filtrarDni);
-                
+                console.table(nuevoUsuario);
+
                 if (filtrarDni == false){
                     alert("no existe una reserva con ese dni");
                     
-                    console.table(filtrarDni)
                 }else{
                     alert("usted tiene una reserva");
 
-                    filtrarDni.forEach(filtrarDni => alert("nombre: " + filtrarDni.nombre +"\n" + "apellido: "+ filtrarDni.apellido + "\n" + "dni: " + filtrarDni.dni + "\n" + "dia: " + filtrarDni.dia))
+                    filtrarDni.forEach(filtrarDni => alert("nombre: " + filtrarDni.nombre +"\n" + "apellido: "+ filtrarDni.apellido + "\n" + "dni: " + filtrarDni.dni + "\n" + "dia: " + filtrarDni.dia));
                 }
-                break; 
-                
 
-                
-                
+                break; 
             case "3": 
                 reservaEliminar = prompt("ingrese el dni de la reserva a cancelar");
 
                 const borrarDni = reservas.findIndex( elemento => elemento.dni === reservaEliminar );
 
                 console.table(borrarDni);
-                reservas.splice( borrarDni, 1 );
-                console.table( reservas );
+                reservas.splice(borrarDni, 1 );
+                console.table(reservas );
 
                 alert("Su reserva fue cancelada");
                 break;
-
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 }alert("cerrando programa");
 
