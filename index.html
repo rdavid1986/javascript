@@ -4,23 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\style.css">
     <title>Document</title>
 </head>
 <body>
-    <label for="name">Ingrese su nombre</label><br>
-    <input type="text" name="Nombre" id="name"><br>
+    <main class="main">
+        <section class="section">
 
-    <label for="lastname">Ingrese su apellido</label><br>
-    <input type="text" name="Apellido" id="lastname"><br>
+            <div class="left">
+                
+            </div>
+            <div class="right">
+                <h1>Ingrese sus datos para hacer su reserva por favor</h1>
+                <label for="firstname" class="label">Nombre</label><br>
+                <input type="text" name="Nombre" id="firstname" class="input" placeholder=" "><br>
+        
+                <label for="lastname" class="label">Apellido</label><br>
+                <input type="text" name="Apellido" id="lastname" class="input" placeholder=" "><br>
+        
+                <label for="dni" class="label">DNI</label><br>
+                <input type="text" name="dni" id="dni" class="input" placeholder=" "><br>
+        
+                <label for="day" class="label label__dia">Elije el dia:</label>
+                <select id="day" name="cars" class="day" class="input" placeholder=" ">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miercoles">miercoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                </select>
 
-    <label for="dni">Ingrese su dni</label><br>
-    <input type="text" name="dni" id="dni"><br>
+            </div>
 
-    <label for="date">Elija el dia</label><br>
-    <input type="text" name="date" id="date"><br>
+        </section>
 
+    </main>
 
-    <script src="./javascript/index.js"></script>
+        <script src="./javascript/index.js"></script>
     
 </body>
 </html>

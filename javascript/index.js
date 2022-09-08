@@ -1,8 +1,8 @@
-const david = {
+ const david = {
     nombre: "david",
     apellido:"rodriguez",
     dni: 1,
-    dia: "7:20hs"
+    dia: "lunes"
 }
 reservas = [];
 reservas.push(david);
@@ -18,7 +18,7 @@ class Persona {
 }
 
 
-option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
+const option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 while (option != "1" && option != "2" && option != "3" && option != "0"){ 
     alert("debes agregar una opcion valida")
     option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir")
@@ -29,10 +29,10 @@ while (option != "0"){
                 nombre = prompt("Ingrese su nombre");
                 apellido = prompt("Ingrese su apellido");
                 dni = prompt("Ingrese su dni");
-                dia = prompt("Elija el dia:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
+                dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4.Jueves \n 5.");
                 while (dia != "1" && dia != "2" && dia != "3" && dia != "4" && dia != "5"){
                     alert("ingrese una opcion correcta");
-                    dia = prompt("Elija el dia:\n 1. 7:00hs \n 2. 7:10hs \n 3.7:20hs \n 4.7:30hs");
+                    dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4. Jueves \n 5. Viernes");
                 }switch(dia){
                     case "1":
                         dia = "Lunes";
@@ -68,7 +68,9 @@ while (option != "0"){
                     
                     console.table(filtrarDni)
                 }else{
-                    alert("usted tiene una reserva"  );
+                    alert("usted tiene una reserva");
+
+                    filtrarDni.forEach(filtrarDni => alert("nombre: " + filtrarDni.nombre +"\n" + "apellido: "+ filtrarDni.apellido + "\n" + "dni: " + filtrarDni.dni + "\n" + "dia: " + filtrarDni.dia))
                 }
                 break; 
                 
@@ -89,3 +91,7 @@ while (option != "0"){
 
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 }alert("cerrando programa");
+while (option != "0") {
+    setTimeout(3000);
+}
+// setTimeout(() => opcionesSesion(), 2000)

@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0; 
+}
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    background: linear-gradient(45deg, #000000, #000ed9eb);
+}
+
+.section{
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  5px 5px 10px #bebebe,
+             -3px -3px 10px #ffffff;
+    align-content: center;
+    background-image: url(../img/paisaje.jpg);
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 70%;
+    padding: 50px;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+.left{
+    border-radius: 20px;
+    background: #e0e0e0;
+    box-shadow:  2px 2px 5px #bebebe,
+             -2px -2px 5px #ffffff;
+    display: block;
+    height: 300px;
+    width: 400px;
+    background-image: url(../img/lugar.jpg);
+    background-size: cover;
+    margin: 25px;
+}
+.background__left {
+    width: 100%;
+    height: 100%;
+}
+
+.right{
+    margin: 25px;
+    display: block;
+    height: 300px;
+    width: 400px;
+    margin-bottom: 50px;
+}
+h1{
+    text-align: center;
+}
+.day {
+    margin-top: 25px;
+}
+input{
+    margin: 5px;
+    margin-left: 45px;
+    margin-top: 10px;
+}
+.label{
+    color: white;
+    margin-bottom: 15px;
+}
+.label__dia {
+    margin-left:70px;
+}
