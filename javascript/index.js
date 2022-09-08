@@ -1,4 +1,4 @@
- const david = {
+const david = {
     nombre: "david",
     apellido:"rodriguez",
     dni: 1,
@@ -18,7 +18,7 @@ class Persona {
 }
 
 
-const option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
+option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 while (option != "1" && option != "2" && option != "3" && option != "0"){ 
     alert("debes agregar una opcion valida")
     option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir")
@@ -52,7 +52,8 @@ while (option != "0"){
                 }
                 const nuevoUsuario = new Persona(nombre, apellido, dni, dia);
                 reservas.push(nuevoUsuario);
-                
+                    alert("Su reserva fue realizada");
+                    console.table(nuevoUsuario);
                 break;
             case "2":  
 
@@ -91,7 +92,5 @@ while (option != "0"){
 
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 }alert("cerrando programa");
-while (option != "0") {
-    setTimeout(3000);
-}
-// setTimeout(() => opcionesSesion(), 2000)
+
+// setTimeout(() => opcionesSesion(), 2000) 
