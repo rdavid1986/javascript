@@ -62,7 +62,6 @@ while (option != "0"){
 
                 console.log(typeof filtrarDni);
                 filtrarDni.forEach(dni => console.log(dni));
-                console.table(nuevoUsuario);
 
                 if (filtrarDni == false){
                     alert("no existe una reserva con ese dni");
