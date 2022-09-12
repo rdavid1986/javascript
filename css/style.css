@@ -71,7 +71,25 @@ input{
 .label__dia {
     margin-left:70px;
 }
+.btns{
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: flex-end;
+    
+    margin-top:5px;
+    margin-left:20px
+}
 .btn{
-    margin-left: 100px;
-    margin-top: 50px;
+    color: white;
+    padding: 1px;
+    margin-top:10px;
+    margin-left: 15px;
+    background: linear-gradient(to bottom right, #1fafd1, #05138e, #05138ec2, #1fafd1);
+    border-image: linear-gradient(to bottom right, #1fafd1, #05138e, #05138ec2, #1fafd1);
+}
+.section__2{
+    display: flex;
 }

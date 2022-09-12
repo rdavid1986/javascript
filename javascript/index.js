@@ -23,7 +23,8 @@ while (option != "1" && option != "2" && option != "3" && option != "0"){
     alert("debes agregar una opcion valida")
     option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir")
 }
-while (option != "0"){
+while (option != "0"){ç
+
     switch(option) {
             case "1":
                 nombre = prompt("Ingrese su nombre");
@@ -86,5 +87,3 @@ while (option != "0"){
                 break;
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 }alert("cerrando programa");
-
-// setTimeout(() => opcionesSesion(), 2000) 

@@ -12,34 +12,45 @@
         <section class="section">
 
             <div class="left">
-                
+                <!-- background-image - css -->
             </div>
             <div class="right">
                 <h1>Ingrese sus datos para hacer su reserva por favor</h1>
-                
-                <label for="firstname" class="label">Nombre</label><br>
-                <input type="text" name="Nombre" id="firstname" class="input" placeholder=" "><br>
-        
-                <label for="lastname" class="label">Apellido</label><br>
-                <input type="text" name="Apellido" id="lastname" class="input" placeholder=" "><br>
-        
-                <label for="dni" class="label">DNI</label><br>
-                <input type="text" name="dni" id="dni" class="input" placeholder=" "><br>
-        
-                <label for="day" class="label label__dia">Elije el dia:</label>
-                <select id="day" name="cars" class="day input" placeholder=" ">
-                <option value="Lunes">Lunes</option>
-                <option value="Martes">Martes</option>
-                <option value="Miercoles">miercoles</option>
-                <option value="Jueves">Jueves</option>
-                <option value="Viernes">Viernes</option>
-                </select><br>
-                
-                <button class="btn">Aceptar</button>
+                    
+                <form class="form__action" id="form">
 
+                    <label for="firstname" class="label">Nombre</label><br>
+                    <input type="text" name="Nombre" id="firstname" class="input" placeholder=" "><br>
+            
+                    <label for="lastname" class="label">Apellido</label><br>
+                    <input type="text" name="Apellido" id="lastname" class="input" placeholder=" "><br>
+            
+                    <label for="dni" class="label">DNI</label><br>
+                    <input type="text" name="dni" id="dni" class="input" placeholder=" "><br>
+            
+                    <label for="day" class="label label__dia">Elije el dia:</label>
+                    <select id="day" name="dias" class="day input" placeholder=" ">
+                    <option value="Lunes">Lunes</option>
+                    <option value="Martes">Martes</option>
+                    <option value="Miercoles">miercoles</option>
+                    <option value="Jueves">Jueves</option>
+                    <option value="Viernes">Viernes</option>
+                    </select><br>
+                    <div class="btns">
+                        <button type="button" class="btn" id="btn">Hacer reserva</button>
+                        <button type="button" class="btn" id="btn">Ver reserva</button>
+                        <button type="button" class="btn" id="btn">Cancelar reserva</button>
+                    </div>
+                    
+                    <!-- <button class="btn">Aceptar</button> -->
+                </form>
             </div>
 
         </section>
+        <section class="section__2">
+            <div class="section__div" id="section__div"></div>
+        </section>
+            
 
     </main>
 
