@@ -14,20 +14,20 @@
 .section{
     border-radius: 20px;
     background: #e0e0e0;
-    box-shadow:  5px 5px 10px #bebebe,
-             -3px -3px 10px #ffffff;
-    align-content: center;
+    box-shadow: 5px 5px 10px #bebebe, -3px -3px 10px #ffffff;
     background-image: url(../img/paisaje.jpg);
     background-size: cover;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 70%;
+    width:900px;
     height: 80vh;
     padding: 50px;
     padding-bottom: 100px;
     border: 1px solid black;
     justify-content: space-around;
+    align-content: space-between;
+    align-items: center;
 }
 .left{
     border-radius: 20px;
@@ -47,11 +47,14 @@
 }
 
 .right{
-    margin: 25px;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     height: 300px;
     width: 400px;
     margin-bottom: 50px;
+    margin-left: -10px;
 }
 h1{
     text-align: center;
@@ -78,9 +81,7 @@ input{
     align-content: stretch;
     justify-content: center;
     align-items: flex-end;
-    
     margin-top:5px;
-    margin-left:20px
 }
 .btn{
     color: white;
@@ -90,6 +91,23 @@ input{
     background: linear-gradient(to bottom right, #1fafd1, #05138e, #05138ec2, #1fafd1);
     border-image: linear-gradient(to bottom right, #1fafd1, #05138e, #05138ec2, #1fafd1);
 }
-.section__2{
+.section__div{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 120px;
+    margin-top: 70px;
+    background-color: ghostwhite;
+    border: 2px solid black;
+}
+.section__text{
+    text-align: center;
+}
+@media screen and (max-width: 1200px){
+    .left{
+        margin-top: -40px;
+        height: 200px;
+    }
+
 }

@@ -18,12 +18,12 @@ class Persona {
 }
 
 
-option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
+let option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 while (option != "1" && option != "2" && option != "3" && option != "0"){ 
     alert("debes agregar una opcion valida")
     option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir")
 }
-while (option != "0"){ç
+while (option != "0"){
 
     switch(option) {
             case "1":
@@ -53,7 +53,9 @@ while (option != "0"){ç
                 }
                 const nuevoUsuario = new Persona(nombre, apellido, dni, dia);
                 reservas.push(nuevoUsuario);
-                    alert("Su reserva fue realizada");
+                let section__div = document.getElementById("section__text");
+                    section__div.innerHTML = "Su reserva fue realizada con exito";
+                    
                     console.table(nuevoUsuario);
                 break;
             case "2":  
@@ -65,12 +67,14 @@ while (option != "0"){ç
                 filtrarDni.forEach(dni => console.log(dni));
 
                 if (filtrarDni == false){
-                    alert("no existe una reserva con ese dni");
+                    let section__div = document.getElementById("section__text");
+                    section__div.innerHTML = "no existe una reserva con ese dni";
+                    
                     
                 }else{
-                    alert("usted tiene una reserva");
+                    let section__div = document.getElementById("section__text");
 
-                    filtrarDni.forEach(filtrarDni => alert("nombre: " + filtrarDni.nombre +"\n" + "apellido: "+ filtrarDni.apellido + "\n" + "dni: " + filtrarDni.dni + "\n" + "dia: " + filtrarDni.dia));
+                    filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: "+ "<br>" + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia); 
                 }
 
                 break; 
@@ -79,11 +83,17 @@ while (option != "0"){ç
 
                 const borrarDni = reservas.findIndex( elemento => elemento.dni === reservaEliminar );
 
+                let section__div__cancelar = document.getElementById("section__text");
+                section__div__cancelar.innerHTML = "Su reserva fue cancelada";
+ 
                 console.table(borrarDni);
                 reservas.splice(borrarDni, 1 );
-                console.table(reservas );
-
-                alert("Su reserva fue cancelada");
+                console.table(reservas);
+                
                 break;
         }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
 }alert("cerrando programa");
+
+/* setTimeout(() => {
+    option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
+},3000); */
