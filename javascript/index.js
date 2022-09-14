@@ -17,83 +17,69 @@ class Persona {
     }
 }
 
+//Funcion para capturar los datos de los inputs
 
-let option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
-while (option != "1" && option != "2" && option != "3" && option != "0"){ 
-    alert("debes agregar una opcion valida")
-    option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir")
+function captura() {
+    const nombreInput = document.getElementById("nombre").value;
+    const apellidoInput = document.getElementById("apellido").value;
+    const dni2 = document.getElementById("dniInput").value;
+    const dia = document.getElementById("dia").value;
+    console.log(nombreInput, apellidoInput, dni2, dia);
+    if (nombreInput == ""){
+        alert("Debe completar el campo nombre");
+        document.getElementById("nombreInput");
+    }else {
+        if (apellidoInput == ""){
+            alert("Debe completar el campo apellido");
+            document.getElementById("nombreInput")
+        }if (dni2 == "") {
+    
+            alert("Debe completar el campo dni");
+            document.getElementById("dniInput");
+            
+        }else {
+            console.log( "nombre :" + " " + nombreInput + "\n" + "Apellido :" + " " + apellidoInput + "\n" + "DNI :" + " " + dni2 + "\n" + "Dia :" + " " + dia)
+        }
+    }
+    const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
+    reservas.push(nuevoUsuario);
+    let section__div = document.getElementById("section__text");
+    section__div.innerHTML = "Su reserva fue realizada con exito";
+    
+    console.table(nuevoUsuario);
 }
-while (option != "0"){
 
-    switch(option) {
-            case "1":
-                nombre = prompt("Ingrese su nombre");
-                apellido = prompt("Ingrese su apellido");
-                dni = prompt("Ingrese su dni");
-                dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4.Jueves \n 5.Viernes");
-                while (dia != "1" && dia != "2" && dia != "3" && dia != "4" && dia != "5"){
-                    alert("ingrese una opcion correcta");
-                    dia = prompt("Elija el dia:\n 1. Lunes \n 2. Martes \n 3.Miercoles \n 4. Jueves \n 5. Viernes");
-                }switch(dia){
-                    case "1":
-                        dia = "Lunes";
-                        break
-                    case "2":
-                        dia = "Martes";
-                        break
-                    case "3":
-                        dia = "Miercoles";
-                        break;
-                    case "4":
-                        dia = "Jueves";
-                        break;
-                    case "5":
-                        dia = "Viernes";
-                        break;
-                }
-                const nuevoUsuario = new Persona(nombre, apellido, dni, dia);
-                reservas.push(nuevoUsuario);
-                let section__div = document.getElementById("section__text");
-                    section__div.innerHTML = "Su reserva fue realizada con exito";
-                    
-                    console.table(nuevoUsuario);
-                break;
-            case "2":  
+console.table(reservas);
 
-                const buscarDni = prompt("Ingrese el dni de su reserva");
-                const filtrarDni = reservas.filter(reserva => reserva.dni == buscarDni );
+function buscar(){
 
-                console.log(typeof filtrarDni);
-                filtrarDni.forEach(dni => console.log(dni));
+    const buscarDni = document.getElementById("dniInput").value;
+    console.log(buscarDni);
+    const filtrarDni = reservas.filter(reserva => reserva.dni == buscarDni );
+    
+    filtrarDni.forEach(dni2 => console.log(dni2));
+    
+    if (filtrarDni == false){
+        let section__div = document.getElementById("section__text");
+        section__div.innerHTML = "no existe una reserva con ese dni";
+        
+        
+    }else{
+        let section__div = document.getElementById("section__text");
+    
+        filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: " + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia); 
+    }
+}
+function cancelar(){
 
-                if (filtrarDni == false){
-                    let section__div = document.getElementById("section__text");
-                    section__div.innerHTML = "no existe una reserva con ese dni";
-                    
-                    
-                }else{
-                    let section__div = document.getElementById("section__text");
+    reservaEliminar = document.getElementById("dniInput").value;
 
-                    filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: "+ "<br>" + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia); 
-                }
+    const borrarDni = reservas.findIndex( elemento => elemento.dni === reservaEliminar );
 
-                break; 
-            case "3": 
-                reservaEliminar = prompt("ingrese el dni de la reserva a cancelar");
+    let section__div__cancelar = document.getElementById("section__text");
+    section__div__cancelar.innerHTML = "Su reserva fue cancelada";
 
-                const borrarDni = reservas.findIndex( elemento => elemento.dni === reservaEliminar );
-
-                let section__div__cancelar = document.getElementById("section__text");
-                section__div__cancelar.innerHTML = "Su reserva fue cancelada";
- 
-                console.table(borrarDni);
-                reservas.splice(borrarDni, 1 );
-                console.table(reservas);
-                
-                break;
-        }option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
-}alert("cerrando programa");
-
-/* setTimeout(() => {
-    option = prompt("Ingrese una opcion: \n1.hacer reserva \n2.ver tu reserva \n3.Cancelar reserva \n0. salir");
-},3000); */
+    console.table(borrarDni);
+    reservas.splice(borrarDni, 1 );
+    console.table(reservas);
+}
