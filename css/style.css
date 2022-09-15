@@ -12,7 +12,6 @@
 }
 
 .section{
-   
     border-radius: 20px;
     background: #e0e0e0;
     box-shadow: 5px 5px 10px #bebebe, -3px -3px 10px #ffffff;
@@ -26,7 +25,7 @@
     padding: 50px;
     border: 1px solid black;
     justify-content: space-around;
-    align-content: flex-start;
+    align-content: center;
     /* align-items: center; */
 }
 
@@ -96,23 +95,15 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
-    height: auto;
     margin-top: 70px;
     background-color: ghostwhite;
-    border: 2px solid black;
+    /* 
+     */
 }
 .section__text{
     text-align: center;
 }
-@media screen and (max-width: 1200px){
-    .left{
-        margin-top: -40px;
-        height: 200px;
-    }
-
-}
-@media screen and (max-width: 500px){
+@media screen and (max-width: 880px){
     .left{
         margin-top: -40px;
         height: 200px;
@@ -121,7 +112,20 @@ input{
     h1 {
         width: 300px;
     }
+   
+    .section__div{
+        margin-top: 400px;
+    } 
+}
+@media screen and (max-width: 500px){
+    
+    
 
+}
+.botones__mostrar__esconder {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
 .esconderReservar{
     display: none
