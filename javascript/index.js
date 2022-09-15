@@ -157,29 +157,8 @@ function toggleCancelar() {
         section__h1.innerHTML = "Bienvenidos a nuestro sistema de reservas";
     }
 }
-
-/* const presionaEnter = document.getElementById("nombre");
-presionaEnter.addEventListener("keydown", presionar);
-
-
-addEventListener("keydown", (e) => {
-    if(e.keycode === 13 ) {
-        console.log(e.target.value);
-    }
-})
-function presionar() {
-    nombre.addEventListener("keydown", myScript);
-} */
-/* 
-const inputEnter = document.getElementById("nombre")
-inputEnter.addEventListener("keydown", presionaEnter);
-
-function presionaEnter(e) {
-    if (e.keycode === 13) {
-
-        document.getElementById("nombre").style.backgroundColor = "red";
-    }
-} */
+//funcion de evento enter
+//Cambia color de background del input nombre
 const inputEnter = document.getElementById('nombre');
 inputEnter.addEventListener('keyup', function(e) {
   const keycode = e.keyCode || e.which;
