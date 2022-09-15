@@ -123,3 +123,21 @@ input{
     }
 
 }
+.esconderReservar{
+    display: none
+}
+.mostrarReservar {
+    display: block;
+}
+.esconderVerReserva{
+    display: none
+}
+.mostrarVerReserva {
+    display: block;
+}
+.esconderCancelar{
+    display: none
+}
+.mostrarCancelar {
+    display: block;
+}

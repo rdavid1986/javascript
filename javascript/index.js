@@ -83,3 +83,59 @@ function cancelar(){
     reservas.splice(borrarDni, 1 );
     console.table(reservas);
 }
+
+//botones de esconder
+const btnEsconder = document.getElementById("btnEsconder");
+const esconderReservar = document.getElementById("esconderReservar");
+btnEsconder.addEventListener("click", toggleReservar);
+
+function toggleReservar() {
+    esconderReservar.classList.toggle("mostrarReservar");
+
+
+    if(esconderReservar.classList.contains("mostrarReservar")){
+        btnEsconder.innerHTML = "esconder Reservar"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Ingrese sus datos para hacer su reserva por favor";
+    }else{
+        btnEsconder.innerHTML = " menu hacer Reserva"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Bienvenidos a nuestro sistema de reservas";
+    }
+}
+const btnEsconder2 = document.getElementById("btnEsconder2");
+const esconderVerReserva = document.getElementById("esconderVerReserva");
+btnEsconder2.addEventListener("click", toggleVerReservar);
+
+function toggleVerReservar() {
+    esconderVerReserva.classList.toggle("mostrarVerReserva");
+
+
+    if(esconderVerReserva.classList.contains("mostrarVerReserva")){
+        btnEsconder2.innerHTML = "esconder ver Reserva"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Ingrese su DNI para ver su reserva por favor";
+    }else{
+        btnEsconder2.innerHTML = " menu ver su Reserva"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Bienvenidos a nuestro sistema de reservas";
+    }
+}
+const btnEsconder3 = document.getElementById("btnEsconder3");
+const esconderCancelar = document.getElementById("esconderCancelar");
+btnEsconder3.addEventListener("click", toggleCancelar);
+
+function toggleCancelar() {
+    esconderCancelar.classList.toggle("mostrarCancelar");
+
+
+    if(esconderCancelar.classList.contains("mostrarCancelar")){
+        btnEsconder3.innerHTML = "esconder cancelar su reserva"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Ingrese su DNI para cancelar su reserva por favor";
+    }else{
+        btnEsconder3.innerHTML = " menu cancelar su reserva"
+        let section__h1 = document.getElementById("section__h1");
+        section__h1.innerHTML = "Bienvenidos a nuestro sistema de reservas";
+    }
+}
