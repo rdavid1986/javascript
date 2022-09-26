@@ -65,6 +65,7 @@ function hacerReserva() {
     console.table(nuevoUsuario);
 }
 
+
 console.table(reservas);
 
 //funcion de buscar reserva
@@ -77,7 +78,6 @@ function buscar(){
     //search on reservas with filtrarDni
     const filtrarDni = dataReservas.filter(reserva => reserva.dni == buscarDni );
     console.log(filtrarDni);
-    filtrarDni.forEach(dni2 => console.log(dni2));
     
     if (filtrarDni == false){
         //if dataReservas is not the same of data from dniInput2
