@@ -26,7 +26,6 @@
     border: 1px solid black;
     justify-content: space-around;
     align-content: center;
-    /* align-items: center; */
 }
 
 .left{
@@ -97,8 +96,7 @@ input{
     align-items: center;
     margin-top: 70px;
     background-color: ghostwhite;
-    /* 
-     */
+    
 }
 .section__text{
     text-align: center;

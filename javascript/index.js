@@ -1,9 +1,11 @@
 
-//Array de reservas
+//Array reservas
 
-reservas = [];
+/* reservas = []; */
 
-//funcion constructora de reservas 
+const reservas = JSON.parse(localStorage.getItem("reservas")) || []
+
+//function constructor reservas 
 
 class Persona {
     constructor(nombre, apellido, dni, dia) {
@@ -14,61 +16,49 @@ class Persona {
     }
 }
 
-//funcion crear reserva
+//function crear reserva
 
 function hacerReserva() {
 
-    //get data from inputs
-    const nombreInput = document.getElementById("nombre").value;
-    const apellidoInput = document.getElementById("apellido").value;
-    const dni2 = document.getElementById("dniInput").value;
-    const dia = document.getElementById("dia").value;
+        //get data from inputs
+        const nombreInput = document.getElementById("nombre").value;
+        const apellidoInput = document.getElementById("apellido").value;
+        const dni2 = document.getElementById("dniInput").value;
+        const dia = document.getElementById("dia").value;
+        //Conditional
+        nombreInput == "" && alert("Debe completar el campo nombre");
+        //Conditional
+        apellidoInput == "" && alert("Debe completar el campo apellido");
+        //Conditional
+        dni2 == "" && alert("Debe completar el campo dni");
+        //Conditional
+        if (nombreInput && apellidoInput && dni2 != ""){
 
-    if (nombreInput == ""){
-        alert("Debe completar el campo nombre");
-        document.getElementById("nombreInput");
-    }else {
-        if (apellidoInput == ""){
-            alert("Debe completar el campo apellido");
-            document.getElementById("nombreInput")
-        }if (dni2 == "") {
-    
-            alert("Debe completar el campo dni");
-            document.getElementById("dniInput");
+            console.log( "Nueva reserva " + "nombre :" + " " + nombreInput + "\n" + "Apellido :" + " " + apellidoInput + "\n" + "DNI :" + " " + dni2 + "\n" + "Dia :" + " " + dia);
+
+            const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
             
-        }else {
-            console.log( "nombre :" + " " + nombreInput + "\n" + "Apellido :" + " " + apellidoInput + "\n" + "DNI :" + " " + dni2 + "\n" + "Dia :" + " " + dia)
+            let section__div = document.getElementById("section__text");
+            //print in screen new persona
+            section__div.innerHTML = "Su reserva fue realizada con exito" + "<br>" + "nombre: " + nuevoUsuario.nombre + "<br>" + "apellido: " + nuevoUsuario.apellido + "<br>"  + "dni: " + nuevoUsuario.dni + "<br>"  + "dia: " + nuevoUsuario.dia;
+        
+            //get old data from JSON and slap it to the new data
+            const reservasEnStorage = JSON.parse(localStorage.getItem("reservas at localStorage "));
+            //push new persona into array 
+            reservasEnStorage.push(nuevoUsuario);
+        
+            //save the old + new data on localStorage
+            localStorage.setItem("reservas", JSON.stringify(reservasEnStorage))
+
+            console.log(nuevoUsuario, "NuevoUsuario push to reservas");
         }
-    }
-    //create a new persona(reserva)
-    const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
-    
-    let section__div = document.getElementById("section__text");
-    //print in screen new persona
-    section__div.innerHTML = "Su reserva fue realizada con exito" + "<br>" + "nombre: " + nuevoUsuario.nombre + "<br>" + "apellido: " + nuevoUsuario.apellido + "<br>"  + "dni: " + nuevoUsuario.dni + "<br>"  + "dia: " + nuevoUsuario.dia;
 
-    
-    //if nothing saved on the start then save an empty array
-    if (localStorage.getItem("reservas") == null) {
-        console.log(reservas)
-        localStorage.setItem("reservas", "[]");
-    }
-    //get old data from JSON and slap it to the new data
-    const reservasEnStorage = JSON.parse(localStorage.getItem("reservas"));
-    //push new persona into array 
-    reservasEnStorage.push(nuevoUsuario);
-
-    //save the old + new data on localStorage
-    localStorage.setItem("reservas", JSON.stringify(reservasEnStorage))
-
-
-    console.table(nuevoUsuario);
 }
 
 
-console.table(reservas);
+console.log(reservas,"Reservas push");
 
-//funcion de buscar reserva
+//function buscar reserva
 function buscar(){
     //get data from reservas 
     const dataReservas = JSON.parse(localStorage.getItem("reservas"));
@@ -79,60 +69,54 @@ function buscar(){
     const filtrarDni = dataReservas.filter(reserva => reserva.dni == buscarDni );
     console.log(filtrarDni);
     
-    if (filtrarDni == false){
-        //if dataReservas is not the same of data from dniInput2
-        let section__div = document.getElementById("section__text");
-        section__div.innerHTML = "no existe una reserva con ese dni";
-        
-        
-    }else{
-        //data from dniInput2 is same at the reservas in JSON
-        let section__div = document.getElementById("section__text");
-    
-        filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: " + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia); 
-    }
+    let section__div = document.getElementById("section__text");
+
+    filtrarDni == false ?  section__div.innerHTML = "no existe una reserva con ese dni" : filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: " + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia);
+
 }
 
-//funcion de cancelar reserva
+//function cancelar reserva
 
 function cancelar (){
+    //get data from reservas 
     const reservasEnStorage = JSON.parse(localStorage.getItem("reservas"));
     console.log(reservasEnStorage,
         "traigo las reservas del json");
-
+    //get data from dniInput3 for search
     const buscarDni = document.getElementById("dniInput3").value;
+    //Filter reservas
     const borrarDni = reservasEnStorage.filter(reserva => reserva.dni != buscarDni );
     console.log(borrarDni,
         "devuelve un array , sin el dni de buscarDni");
     
-    localStorage.setItem("reservas", JSON.stringify(reservasEnStorage));
+    const nuevasReservasEnStorage = borrarDni;
+    //push new array whitout borrarDni
+    localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
+    let section__div__cancelar = document.getElementById("section__text");
 
-    if (borrarDni != true){
+    borrarDni === buscarDni ? (section__div__cancelar.innerHTML = "Su reserva fue cancelada") : (section__div__cancelar.innerHTML = "no existe una reserva con ese dni")
 
-        const nuevasReservasEnStorage = borrarDni;
-        localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
-        
-        let section__div__cancelar = document.getElementById("section__text");
-        
-        section__div__cancelar.innerHTML = "Su reserva fue cancelada";
-        
-    }
-    else{
-        
-        //if reservasEnStorage is not the same of data from dniInput2
-        let section__div = document.getElementById("section__text");
-        section__div.innerHTML = "no existe una reserva con ese dni";
-    }
 }
+//spread
+console.log(...reservas, "spread de reservas");
 
-//botones de esconder
-//Boton reservar
+// Destructuring 
+const reservas2 = reservas.find(reserva => reservas.reserva === reservas);
+let [{nombre, dni}] = reservas 
+console.log( {nombre}, "nombre de reserva con Destructuring ")
+console.log( {dni}, "dni de reserva con Destructuring ")
+
+//button esconder
+//Button reservar
 
 const btnEsconder = document.getElementById("btnEsconder");
 const esconderReservar = document.getElementById("esconderReservar");
 btnEsconder.addEventListener("click", toggleReservar);
 function toggleReservar() {
     esconderReservar.classList.toggle("mostrarReservar");
+
+    let section__h1 = document.getElementById("section__h1");
+
 
     if(esconderReservar.classList.contains("mostrarReservar")){
         btnEsconder.innerHTML = "Esconder Reservar"
@@ -145,7 +129,7 @@ function toggleReservar() {
     }
 }
 
-//boton ver reserva
+//button ver reserva
 
 const btnEsconder2 = document.getElementById("btnEsconder2");
 const esconderVerReserva = document.getElementById("esconderVerReserva");
@@ -165,7 +149,7 @@ function toggleVerReserva() {
     }
 }
 
-//boton cancelar reserva
+//button cancelar reserva
 
 const btnEsconder3 = document.getElementById("btnEsconder3");
 const esconderCancelar = document.getElementById("esconderCancelar");
