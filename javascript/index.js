@@ -114,6 +114,7 @@ function cancelar (){
 
     const nuevasReservasEnStorage = borrarDni;
 
+    
     reservas.length != borrarDni.length ? Swal.fire({
         title: "Su reserva fue cancelada",
         icon: 'success',
@@ -128,10 +129,10 @@ function cancelar (){
         title: 'no existe una reserva con ese dni ...',
         text: 'Debe ingresar un Dni con el que haya hecho una reserva',
     })
-
-    //push new array whitout borrarDni
-    localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
-    let section__div__cancelar = document.getElementById("section__text");
+    if (buscarDni == borrarDni) {
+        //push new array whitout borrarDni
+        localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
+    }
 
 
 }
