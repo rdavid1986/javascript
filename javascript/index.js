@@ -1,16 +1,7 @@
-<<<<<<< HEAD
-//Array de reservas
-=======
-
 //Array reservas
->>>>>>> develop
-
-/* reservas = []; */
-
 const reservas = JSON.parse(localStorage.getItem("reservas")) || []
 
 //function constructor reservas 
-
 class Persona {
     constructor(nombre, apellido, dni, dia) {
         this.nombre = nombre,
@@ -21,7 +12,6 @@ class Persona {
 }
 
 //function crear reserva
-
 function hacerReserva() {
 
         //get data from inputs
@@ -30,11 +20,23 @@ function hacerReserva() {
         const dni2 = document.getElementById("dniInput").value;
         const dia = document.getElementById("dia").value;
         //Conditional
-        nombreInput == "" && alert("Debe completar el campo nombre");
+        nombreInput == "" && Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe completar el campo nombre',
+          });
         //Conditional
-        apellidoInput == "" && alert("Debe completar el campo apellido");
+        apellidoInput == "" && Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe completar el campo apellido',
+          });;
         //Conditional
-        dni2 == "" && alert("Debe completar el campo dni");
+        dni2 == "" && Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe completar el campo Dni',
+          });
         //Conditional
         if (nombreInput && apellidoInput && dni2 != ""){
 
@@ -42,25 +44,34 @@ function hacerReserva() {
 
             const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
             
-            let section__div = document.getElementById("section__text");
-            //print in screen new persona
-            section__div.innerHTML = "Su reserva fue realizada con exito" + "<br>" + "nombre: " + nuevoUsuario.nombre + "<br>" + "apellido: " + nuevoUsuario.apellido + "<br>"  + "dni: " + nuevoUsuario.dni + "<br>"  + "dia: " + nuevoUsuario.dia;
-        
             //get old data from JSON and slap it to the new data
-            const reservasEnStorage = JSON.parse(localStorage.getItem("reservas at localStorage "));
+            /* reservas */
+            /* const reservasEnStorage = JSON.parse(localStorage.getItem("reservas at localStorage ")); */
             //push new persona into array 
-            reservasEnStorage.push(nuevoUsuario);
-        
-            //save the old + new data on localStorage
-            localStorage.setItem("reservas", JSON.stringify(reservasEnStorage))
+            reservas.push(nuevoUsuario);
+            
+            console.log(reservas,"Reservas push");
 
+            //save the old + new data on localStorage
+            localStorage.setItem("reservas", JSON.stringify(reservas));
+            
             console.log(nuevoUsuario, "NuevoUsuario push to reservas");
+
+            Swal.fire({
+                title: "Su reserva fue realizada con exito" + "<br>" + "nombre: " + nuevoUsuario.nombre + "<br>" + "apellido: " + nuevoUsuario.apellido + "<br>"  + "dni: " + nuevoUsuario.dni + "<br>"  + "dia: " + nuevoUsuario.dia,
+                icon: 'success',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              })
         }
 
 }
 
 
-console.log(reservas,"Reservas push");
 
 //function buscar reserva
 function buscar(){
@@ -73,10 +84,23 @@ function buscar(){
     const filtrarDni = dataReservas.filter(reserva => reserva.dni == buscarDni );
     console.log(filtrarDni);
     
-    let section__div = document.getElementById("section__text");
-
-    filtrarDni == false ?  section__div.innerHTML = "no existe una reserva con ese dni" : filtrarDni.forEach(filtrarDni => section__div.innerHTML ="Usted tiene una reserva" + "<br>" + "nombre: " + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia);
-
+    filtrarDni.forEach(filtrarDni =>  nombreReservas ="Usted tiene una reserva" + "<br>" + "nombre: " + filtrarDni.nombre + "<br>" + "apellido: "+ filtrarDni.apellido + "<br>"  + "dni: " + filtrarDni.dni + "<br>"  + "dia: " + filtrarDni.dia);
+    //Conditional
+    filtrarDni == false ? Swal.fire({
+        icon: 'error',
+        title: 'no existe una reserva con ese dni...',
+        text: 'Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado',
+    }) : 
+    Swal.fire({
+        title: nombreReservas,
+        icon: 'success',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    })
 }
 
 //function cancelar reserva
@@ -92,23 +116,32 @@ function cancelar (){
     const borrarDni = reservasEnStorage.filter(reserva => reserva.dni != buscarDni );
     console.log(borrarDni,
         "devuelve un array , sin el dni de buscarDni");
-    
+        
     const nuevasReservasEnStorage = borrarDni;
+
+    reservasEnStorage == nuevasReservasEnStorage ? Swal.fire({
+        title: "Su reserva fue cancelada",
+        icon: 'success',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }) : Swal.fire({
+        icon: 'error',
+        title: 'no existe una reserva con ese dni...',
+        text: 'Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado',
+    })
+
     //push new array whitout borrarDni
     localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
     let section__div__cancelar = document.getElementById("section__text");
 
-    borrarDni === buscarDni ? (section__div__cancelar.innerHTML = "Su reserva fue cancelada") : (section__div__cancelar.innerHTML = "no existe una reserva con ese dni")
 
 }
 //spread
 console.log(...reservas, "spread de reservas");
-
-// Destructuring 
-const reservas2 = reservas.find(reserva => reservas.reserva === reservas);
-let [{nombre, dni}] = reservas 
-console.log( {nombre}, "nombre de reserva con Destructuring ")
-console.log( {dni}, "dni de reserva con Destructuring ")
 
 //button esconder
 //Button reservar
