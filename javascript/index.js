@@ -50,7 +50,7 @@ function hacerReserva() {
             //push new persona into array 
             reservas.push(nuevoUsuario);
             
-            console.log(reservas,"Reservas push");
+            console.log(reservas, "Push de nuevoUsuario en reserva"  );
 
             //save the old + new data on localStorage
             localStorage.setItem("reservas", JSON.stringify(reservas));
@@ -70,9 +70,6 @@ function hacerReserva() {
         }
 
 }
-
-
-
 //function buscar reserva
 function buscar(){
     //get data from reservas 
@@ -102,9 +99,7 @@ function buscar(){
         }
     })
 }
-
 //function cancelar reserva
-
 function cancelar (){
     //get data from reservas 
     const reservasEnStorage = JSON.parse(localStorage.getItem("reservas"));
@@ -116,10 +111,10 @@ function cancelar (){
     const borrarDni = reservasEnStorage.filter(reserva => reserva.dni != buscarDni );
     console.log(borrarDni,
         "devuelve un array , sin el dni de buscarDni");
-        
+
     const nuevasReservasEnStorage = borrarDni;
 
-    reservasEnStorage == nuevasReservasEnStorage ? Swal.fire({
+    reservas.length != borrarDni.length ? Swal.fire({
         title: "Su reserva fue cancelada",
         icon: 'success',
         showClass: {
@@ -130,8 +125,8 @@ function cancelar (){
         }
     }) : Swal.fire({
         icon: 'error',
-        title: 'no existe una reserva con ese dni...',
-        text: 'Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado',
+        title: 'no existe una reserva con ese dni ...',
+        text: 'Debe ingresar un Dni con el que haya hecho una reserva',
     })
 
     //push new array whitout borrarDni
