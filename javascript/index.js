@@ -35,7 +35,12 @@ function hacerReserva() {
         dni2 == "" && Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Debe completar el campo Dni',
+            text: 'Debe completar el campo Dni. (Este campo solo acepta entrada numerica)',
+          });
+          dni2 == NaN && Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Este campo solo acepta entrada numerica',
           });
         //Conditional
         if (nombreInput && apellidoInput && dni2 != ""){
@@ -86,7 +91,7 @@ function buscar(){
     filtrarDni == false ? Swal.fire({
         icon: 'error',
         title: 'no existe una reserva con ese dni...',
-        text: 'Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado',
+        text: 'Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado. (Este campo solo acepta entrada numerica)',
     }) : 
     Swal.fire({
         title: nombreReservas,
@@ -139,6 +144,12 @@ function cancelar (){
 //spread
 console.log(...reservas, "spread de reservas");
 
+//destructuring 
+
+const desestructurar = ( [{nombre, apellido,dni}]) => {
+    console.log(" nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni,"\n", "destructuracion de reserva" );
+}
+desestructurar(reservas)
 //button esconder
 //Button reservar
 
