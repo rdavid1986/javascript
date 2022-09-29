@@ -1,6 +1,5 @@
 //Array reservas
-const reservas = []
-const reservasEnStorage = JSON.parse(localStorage.getItem("reservas")) || [];
+const reservas = JSON.parse(localStorage.getItem("reservas")) || []
 
 //function constructor reservas 
 class Persona {
@@ -38,11 +37,7 @@ function hacerReserva() {
             title: 'Oops...',
             text: 'Debe completar el campo Dni. (Este campo solo acepta entrada numerica)',
           });
-          dni2 == NaN && Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Este campo solo acepta entrada numerica',
-          });
+        
         //Conditional
         if (nombreInput && apellidoInput && dni2 != ""){
 
@@ -51,15 +46,14 @@ function hacerReserva() {
             const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
             
             //get old data from JSON and slap it to the new data
-            reservasEnStorage
-
+            const nuevasReservasEnStorage = JSON.parse(localStorage.getItem("reservas"));
             //push new persona into array 
-            reservasEnStorage.push(nuevoUsuario);
+            nuevasReservasEnStorage.push(nuevoUsuario);
             
-            console.log(reservasEnStorage, "Push de nuevoUsuario en reserva"  );
+            console.log(reservas, "Push de nuevoUsuario en reserva"  );
 
             //save the old + new data on localStorage
-            localStorage.setItem("reservas", JSON.stringify(reservasEnStorage));
+            localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
             
             console.log(nuevoUsuario, "NuevoUsuario push to reservas");
 
@@ -78,7 +72,7 @@ function hacerReserva() {
         const desestructurar = ([{nombre, apellido, dni}]) => {
             console.log( "destructuracion de reserva","\n","nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni );
         }
-        desestructurar(reservasEnStorage)
+        desestructurar(reservas)
 }
 //function buscar reserva
 function buscar(){
@@ -142,7 +136,7 @@ function cancelar (){
     })
 }
 //spread
-console.log(...reservasEnStorage, "spread de reservas");
+console.log(...reservas, "spread de reservas");
 
 //button esconder
 //Button reservar
