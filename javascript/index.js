@@ -74,7 +74,7 @@ function hacerReserva() {
               })
         }
         //destructuring 
-        const desestructurar = ( [{nombre, apellido,dni}]) => {
+        const desestructurar = ([{nombre, apellido, dni}]) => {
             console.log( "destructuracion de reserva","\n","nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni );
         }
         desestructurar(reservas)
@@ -122,7 +122,8 @@ function cancelar (){
         "devuelve un array , sin el dni de buscarDni");
 
     const nuevasReservasEnStorage = borrarDni;
-
+    //push new array whitout borrarDni
+    localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
     
     reservas.length != borrarDni.length ? Swal.fire({
         title: "Su reserva fue cancelada",
@@ -138,12 +139,6 @@ function cancelar (){
         title: 'no existe una reserva con ese dni ...',
         text: 'Debe ingresar un Dni con el que haya hecho una reserva',
     })
-    if (buscarDni == borrarDni) {
-        //push new array whitout borrarDni
-        localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
-    }
-
-
 }
 //spread
 console.log(...reservas, "spread de reservas");
