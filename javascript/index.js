@@ -73,7 +73,11 @@ function hacerReserva() {
                 }
               })
         }
-
+        //destructuring 
+        const desestructurar = ( [{nombre, apellido,dni}]) => {
+            console.log( "destructuracion de reserva","\n","nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni );
+        }
+        desestructurar(reservas)
 }
 //function buscar reserva
 function buscar(){
@@ -144,12 +148,6 @@ function cancelar (){
 //spread
 console.log(...reservas, "spread de reservas");
 
-//destructuring 
-
-const desestructurar = ( [{nombre, apellido,dni}]) => {
-    console.log(" nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni,"\n", "destructuracion de reserva" );
-}
-desestructurar(reservas)
 //button esconder
 //Button reservar
 
