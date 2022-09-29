@@ -120,7 +120,7 @@ function cancelar (){
     //push new array whitout borrarDni
     localStorage.setItem("reservas", JSON.stringify(nuevasReservasEnStorage));
     
-    reservas.length != borrarDni.length ? Swal.fire({
+    reservasEnStorage.length != borrarDni.length ? Swal.fire({
         title: "Su reserva fue cancelada",
         icon: 'success',
         showClass: {
@@ -151,7 +151,7 @@ function toggleReservar() {
 
 
     if(esconderReservar.classList.contains("mostrarReservar")){
-        btnEsconder.innerHTML = "Esconder Reservar"
+        btnEsconder.innerHTML = "Esconder menu hacer reserva"
         let section__h1 = document.getElementById("section__h1");
         section__h1.innerHTML = "Ingrese sus datos para hacer su reserva por favor";
     }else{
