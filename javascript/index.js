@@ -171,7 +171,7 @@ function toggleVerReserva() {
 
 
     if(esconderVerReserva.classList.contains("mostrarVerReserva")){
-        btnEsconder2.innerHTML = "Esconder ver Reserva"
+        btnEsconder2.innerHTML = "Esconder menu ver Reserva"
         let section__h1 = document.getElementById("section__h1");
         section__h1.innerHTML = "Ingrese su DNI para ver su reserva por favor";
     }else{
@@ -191,7 +191,7 @@ function toggleCancelar() {
 
 
     if(esconderCancelar.classList.contains("mostrarCancelar")){
-        btnEsconder3.innerHTML = "Esconder cancelar su reserva"
+        btnEsconder3.innerHTML = "Esconder menu cancelar su reserva"
         let section__h1 = document.getElementById("section__h1");
         section__h1.innerHTML = "Ingrese su DNI para cancelar su reserva por favor";
     }else{
