@@ -50,8 +50,7 @@ function hacerReserva() {
             const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
             
             //get old data from JSON and slap it to the new data
-            /* reservas */
-            /* const reservasEnStorage = JSON.parse(localStorage.getItem("reservas at localStorage ")); */
+            reservas 
             //push new persona into array 
             reservas.push(nuevoUsuario);
             
