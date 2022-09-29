@@ -1,5 +1,6 @@
 //Array reservas
-const reservas = JSON.parse(localStorage.getItem("reservas")) || []
+const reservas = []
+const reservasEnStorage = JSON.parse(localStorage.getItem("reservas")) || [];
 
 //function constructor reservas 
 class Persona {
@@ -50,14 +51,15 @@ function hacerReserva() {
             const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
             
             //get old data from JSON and slap it to the new data
-            reservas 
+            reservasEnStorage
+
             //push new persona into array 
-            reservas.push(nuevoUsuario);
+            reservasEnStorage.push(nuevoUsuario);
             
-            console.log(reservas, "Push de nuevoUsuario en reserva"  );
+            console.log(reservasEnStorage, "Push de nuevoUsuario en reserva"  );
 
             //save the old + new data on localStorage
-            localStorage.setItem("reservas", JSON.stringify(reservas));
+            localStorage.setItem("reservas", JSON.stringify(reservasEnStorage));
             
             console.log(nuevoUsuario, "NuevoUsuario push to reservas");
 
@@ -76,7 +78,7 @@ function hacerReserva() {
         const desestructurar = ([{nombre, apellido, dni}]) => {
             console.log( "destructuracion de reserva","\n","nombre :",nombre,"\n","apellido :", apellido ,"\n", "dni :", dni );
         }
-        desestructurar(reservas)
+        desestructurar(reservasEnStorage)
 }
 //function buscar reserva
 function buscar(){
@@ -140,7 +142,7 @@ function cancelar (){
     })
 }
 //spread
-console.log(...reservas, "spread de reservas");
+console.log(...reservasEnStorage, "spread de reservas");
 
 //button esconder
 //Button reservar
