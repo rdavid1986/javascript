@@ -13,19 +13,16 @@
 
 .section{
     border-radius: 20px;
-    background: #e0e0e0;
     box-shadow: 5px 5px 10px #bebebe, -3px -3px 10px #ffffff;
     background-image: url(../img/paisaje.jpg);
     background-size: cover;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 900px;
     height: 100vh;
-    padding: 50px;
     border: 1px solid black;
     justify-content: space-between;
-    align-content: center;
+    align-content: flex-start;
 }
 
 .left{
@@ -39,6 +36,7 @@
     background-image: url(../img/lugar.jpg);
     background-size: cover;
     margin-bottom: 0;
+    margin-top:100px;
 }
 .background__left {
     width: 100%;
@@ -53,9 +51,35 @@
     height: 300px;
     width: 400px;
     margin-bottom: 50px;
+    margin-top:100px;
     margin-left: -10px;
 }
-h1{
+.fetch{
+    background-color: white;
+    border-radius: 10px;
+    height: 45px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top:100px;
+}
+.card {
+    border-radius: 10px;
+    margin:10px;
+    overflow: hidden;
+}
+.card-body {
+    background-image: url(../img/coding_gif/coding.gif);
+}
+.card-title {
+    text-align: center;
+    color: white;
+}
+.card-text {
+    text-align: center;
+    color: white;
+}
+.section__h1{
+    margin: 2px 2px;
     text-align: center;
 }
 .day {
@@ -82,7 +106,7 @@ input{
     align-items: flex-end;
     margin-top:5px;
 }
-.btn{
+.buton{
     color: white;
     padding: 1px;
     margin-top:10px;
@@ -155,9 +179,8 @@ input{
     padding: 10px;
     margin: 10px;
 }
-.section__div div {
-    background-color: white;
-    width:150px;
-    text-align: center;
-    margin: 10px;
+/* butons */
+/* .hide {
+    display: none;
 }
+ */

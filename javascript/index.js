@@ -8,8 +8,13 @@ fetch('/data.json')
     data.forEach((reservas) => {
         const div = document.createElement('div')
         div.innerHTML = `
-        <p class="text">Muchas gracias a nuestro ${reservas.cargo} ${reservas.nombre}</p>
-        <hr/>
+            <div class="card" style="width: 18rem;">
+            <img src="img/JavaScript-code.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Muchas gracias</h5>
+                <p class="card-text">${reservas.cargo} ${reservas.nombre}</a>
+                </div>
+            </div>
         `
         section__div.appendChild(div)
     })
