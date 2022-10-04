@@ -24,7 +24,7 @@
     height: 100vh;
     padding: 50px;
     border: 1px solid black;
-    justify-content: space-around;
+    justify-content: space-between;
     align-content: center;
 }
 
@@ -92,10 +92,10 @@ input{
 }
 .section__div{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 70px;
-    background-color: ghostwhite;
     
 }
 .section__text{
@@ -142,4 +142,22 @@ input{
 }
 .mostrarCancelar {
     display: block;
+}
+.text{
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 2px
+}
+
+.section__div h3 {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+.section__div div {
+    background-color: white;
+    width:150px;
+    text-align: center;
+    margin: 10px;
 }
