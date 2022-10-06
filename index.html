@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,69 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Simulador de reservas</title>
 </head>
 <body>
     <main class="main">
         <section class="section">
-
-            <div class="right">
-
-                <h1 id="section__h1" class="section__h1"> Bienvenidos a nuestro sistema de reservas</h1>
-                    <div id="botonesMostrarEsconder" class="botones__mostrar__esconder">
-
-                        <button class="buton" id="btnEsconder">Hacer una reserva</button>
-                        
-                        <button class="buton" id="btnEsconder2">Ver reserva a mi nombre</button>
-
-                        <button class="buton" id="btnEsconder3">Cancelar reserva</button>
-
-                    </div>
-                    <span class="esconderReservar" id="esconderReservar">
+            <div class="left" id="left">
+                <h3 class="left__h3"><bold>Bienvenidos a nuestro sistema de reservas</bold></h3>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Hacer reserva
+                            </button>
+                        </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <form class="form__action" id="form">
                             
-                        <form class="form__action" id="form">
-        
-                            <label for="nombre" class="label">Nombre</label><br>
-                            <input type="text" name="Nombre" id="nombre" class="input" keydown="precionaEnter()" placeholder="Ingrese su nombre"><br>
-                    
-                            <label for="apellido" class="label">Apellido</label><br>
-                            <input type="text" name="Apellido" id="apellido" class="input" placeholder="Ingrese su apellido"><br>
-                    
-                            <label for="dniInput" class="label">DNI</label><br>
-                            <input type="number" name="dni" id="dniInput" class="input" placeholder="Ingrese su dni"><br>
-                    
-                            <label for="dia" class="label label__dia">Elije el dia:</label>
-                            <select id="dia" name="dia" class="day input" placeholder=" ">
-                            <option value="Lunes" >Lunes</option>
-                            <option value="Martes" id="fecha2">Martes</option>
-                            <option value="Miercoles">miercoles</option>
-                            <option value="Jueves">Jueves</option>
-                            <option value="Viernes">Viernes</option>
-                            </select><br>
-                            <div class="btns">
-                                <button type="button" onclick="hacerReserva()" class="buton" id="btn">Hacer reserva</button>
+                                <label for="nombre" class="label">Nombre</label><br>
+                                <input type="text" name="Nombre" id="nombre" class="input" keydown="precionaEnter()" placeholder="Ingrese su nombre"><br>
+                        
+                                <label for="apellido" class="label">Apellido</label><br>
+                                <input type="text" name="Apellido" id="apellido" class="input" placeholder="Ingrese su apellido"><br>
+                        
+                                <label for="dniInput" class="label">DNI</label><br>
+                                <input type="number" name="dni" id="dniInput" class="input" placeholder="Ingrese su dni"><br>
+                        
+                                <label for="dia" class="label label__dia">Elije el dia:</label>
+                                <select id="dia" name="dia" class="day__input" placeholder=" ">
+                                <option value="Lunes" >Lunes</option>
+                                <option value="Martes" id="fecha2">Martes</option>
+                                <option value="Miercoles">miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                                </select>
+
+                                    <button type="button" onclick="hacerReserva()" class="buton" id="btn">Hacer reserva</button>
+                            </form>
+                     
                             </div>
-                        </form>
-                    </span>
-                <form id="botonboton">
-                    <span class="esconderVerReserva" id="esconderVerReserva">
-                        <label for="dniInput2" class="label">DNI</label><br>
-                        <input type="number" name="dni" id="dniInput2" class="input" placeholder="Ingrese su dni"><br>
-
-                        <button type="button" onclick="buscar()" class="buton" id="btn2">Ver reserva</button>
-                    </span>
-                    <span class="esconderCancelar" id="esconderCancelar">
-
-                        <label for="dniInput3" class="label">DNI</label><br>
-                        <input type="number" name="dni" id="dniInput3" class="input" placeholder="Ingrese su dni"><br>
-
-                        <button type="button" onclick="cancelar()"  class="buton" id="btn3">Cancelar reserva</button>
-                    </span>
-                </form>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Ver mi reserva
+                            </button>
+                         </h2>
+                        <div id="collapseTwo" class="accordion__personalizado accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <label for="dniInput2" class="label">DNI</label><br>
+                                <input type="number" name="dni" id="dniInput2" class="input" placeholder="Ingrese su dni"><br>
+                                
+                                <button type="button" onclick="buscar()" class="buton" id="btn2">Ver reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Cancelar mi reserva
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion__personalizado accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <label for="dniInput3" class="label">DNI</label><br>
+                                <input type="number" name="dni" id="dniInput3" class="input" placeholder="Ingrese su dni"><br>
+                    
+                                <button type="button" onclick="cancelar()"  class="buton" id="btn3">Cancelar reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="dom"><button type="button" class="buton"  id="opinion">Mi opinion</button></div>
+                <div id="divDom"></div>
             </div>
             <div class="section__div" id="section__div">
-                <h3>Extraido de data.json con fetch</h3>
-                
+                <!-- data.json fetch to cards -->
             </div>
         </section>
     </main>
@@ -79,4 +94,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
 </body>
-</html> -->
+</html>
+
+
+
+

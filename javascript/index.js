@@ -1,14 +1,14 @@
 //Array reservas
 const reservasEnStorage = JSON.parse(localStorage.getItem("reservas")) || [];
 
-fetch('/data.json')
+fetch('./data.json')
 .then((res) => res.json())
 .then( (data) => {
     data.forEach((reservas) => {
         const div = document.createElement('div')
         div.innerHTML = `
             <div class="card" style="width: 18rem;">
-            <img src="img/JavaScript-code.jpg" class="card-img-top" alt="...">
+            <img src="./img/card_img/JavaScript-code.jpg" class="card-img-top" alt="coding">
             <div class="card-body">
                 <h5 class="card-title">Muchas gracias</h5>
                 <p class="card-text">${reservas.cargo} ${reservas.nombre}</a>
