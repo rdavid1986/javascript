@@ -160,7 +160,7 @@ function mostrarOpinion() {
     let opinion = document.getElementById("dom");
     opinion.innerHTML = `
     <div class="dom" id="divDom">
-        <p id="textDom">El desarrollo y objetivo de este simulador es el de tomar reservas y guardarlas. Si usted ya tiene una reserva, puede consultarla en el campo "Ver mi reserva". Si usted quiere cancelar una reserva se hace en el campo "Cancelar mi reserva".</p>
+        <p id="textDom">El objetivo de este simulador es el de tomar reservas y guardarlas. Si usted ya tiene una reserva, puede consultarla en el campo "Ver mi reserva". Si usted quiere cancelar una reserva se hace en el campo "Cancelar mi reserva".</p>
         <button type="button" class="buton cerrar" onclick="toggle()" id="cerrar">cerrar</button>
     </div>
     `
