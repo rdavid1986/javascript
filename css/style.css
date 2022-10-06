@@ -115,7 +115,7 @@
 .section__text{
     text-align: center;
 }
-@media screen and (max-width: 880px){
+@media screen and (max-width: 1152px){
     .main {
         padding: 0;
     }
