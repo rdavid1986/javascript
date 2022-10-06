@@ -116,23 +116,21 @@
     text-align: center;
 }
 @media screen and (max-width: 880px){
+    .main {
+        padding: 0;
+    }
+    .section{
+        height: 100%;
+        width: 100%;
+    }
     .left{
-        margin-top: -40px;
-        height: 200px;
-        width: 200px;
+        height: 100%;
+        width: 100%;
     }
     h1 {
         width: 300px;
     }
    
-    .section__div{
-        margin-top: 400px;
-    } 
-}
-@media screen and (max-width: 500px){
-    
-    
-
 }
 .botones__mostrar__esconder {
     display: inline-flex;
