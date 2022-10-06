@@ -11,37 +11,40 @@
 <body>
     <main class="main">
         <section class="section">
-            <div class="left">
+            <div class="left" id="left">
                 <h3 class="left__h3"><bold>Bienvenidos a nuestro sistema de reservas</bold></h3>
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Hacer reserva</button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Hacer reserva
+                            </button>
                         </h2>
-                        <div id="collapseOne" class="accordion__personalizado accordion-collapse collapse show " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <form class="form__action" id="form">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <form class="form__action" id="form">
                             
-                                    <label for="nombre" class="label">Nombre</label><br>
-                                    <input type="text" name="Nombre" id="nombre" class="input" keydown="precionaEnter()" placeholder="Ingrese su nombre"><br>
-                            
-                                    <label for="apellido" class="label">Apellido</label><br>
-                                    <input type="text" name="Apellido" id="apellido" class="input" placeholder="Ingrese su apellido"><br>
-                            
-                                    <label for="dniInput" class="label">DNI</label><br>
-                                    <input type="number" name="dni" id="dniInput" class="input" placeholder="Ingrese su dni"><br>
-                            
-                                    <label for="dia" class="label label__dia">Elije el dia:</label>
-                                    <select id="dia" name="dia" class="day__input" placeholder=" ">
-                                    <option value="Lunes" >Lunes</option>
-                                    <option value="Martes" id="fecha2">Martes</option>
-                                    <option value="Miercoles">miercoles</option>
-                                    <option value="Jueves">Jueves</option>
-                                    <option value="Viernes">Viernes</option>
-                                    </select>
+                                <label for="nombre" class="label">Nombre</label><br>
+                                <input type="text" name="Nombre" id="nombre" class="input" keydown="precionaEnter()" placeholder="Ingrese su nombre"><br>
+                        
+                                <label for="apellido" class="label">Apellido</label><br>
+                                <input type="text" name="Apellido" id="apellido" class="input" placeholder="Ingrese su apellido"><br>
+                        
+                                <label for="dniInput" class="label">DNI</label><br>
+                                <input type="number" name="dni" id="dniInput" class="input" placeholder="Ingrese su dni"><br>
+                        
+                                <label for="dia" class="label label__dia">Elije el dia:</label>
+                                <select id="dia" name="dia" class="day__input" placeholder=" ">
+                                <option value="Lunes" >Lunes</option>
+                                <option value="Martes" id="fecha2">Martes</option>
+                                <option value="Miercoles">miercoles</option>
+                                <option value="Jueves">Jueves</option>
+                                <option value="Viernes">Viernes</option>
+                                </select>
 
-                                        <button type="button" onclick="hacerReserva()" class="buton" id="btn">Hacer reserva</button>
-                                </form>
+                                    <button type="button" onclick="hacerReserva()" class="buton" id="btn">Hacer reserva</button>
+                            </form>
+                     
                             </div>
                         </div>
                     </div>
@@ -71,12 +74,13 @@
                                 <label for="dniInput3" class="label">DNI</label><br>
                                 <input type="number" name="dni" id="dniInput3" class="input" placeholder="Ingrese su dni"><br>
                     
-                                <button type="button" onclick="cancelar()"  class="buton" id="opinion">Cancelar reserva</button>
+                                <button type="button" onclick="cancelar()"  class="buton" id="btn3">Cancelar reserva</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div><button type="button" class="buton" id="btn2">Mi opinion</button></div>
+                <div id="dom"><button type="button" class="buton"  id="opinion">Mi opinion</button></div>
+                <div id="divDom"></div>
             </div>
             <div class="section__div" id="section__div">
                 <!-- data.json fetch to cards -->

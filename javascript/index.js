@@ -60,7 +60,7 @@ function hacerReserva() {
     if (nombreInput && apellidoInput && dni2 != "") {
         //Create a new user 
         const nuevoUsuario = new Persona(nombreInput, apellidoInput, dni2, dia);
-        console.log("Nueva reserva " + "\n" + "nombre :" + " " + nombreInput + "\n" + "Apellido :" + " " + apellidoInput + "\n" + "DNI :" + " " + dni2 + "\n" + "Dia :" + " " + dia);
+        console.log("Nueva reserva " + "\n" + "Nombre :" + " " + nombreInput + "\n" + "Apellido :" + " " + apellidoInput + "\n" + "DNI :" + " " + dni2 + "\n" + "Dia :" + " " + dia);
         //get old data from JSON and slap it to the new data
         const nuevasReservasEnStorage = JSON.parse(localStorage.getItem("reservas")) || [];
         //push new persona into array
@@ -71,7 +71,7 @@ function hacerReserva() {
         console.log(nuevoUsuario, "NuevoUsuario push to reservas");
 
         Swal.fire({
-            title:"Su reserva fue realizada con exito" + "<br>" + "nombre: " + nuevoUsuario.nombre + "<br>" + "apellido: " + nuevoUsuario.apellido + "<br>" + "dni: " + nuevoUsuario.dni + "<br>" + "dia: " + nuevoUsuario.dia,
+            title:"Su reserva fue realizada con exito" + "<br>" + "Nombre: " + nuevoUsuario.nombre + "<br>" + "Apellido: " + nuevoUsuario.apellido + "<br>" + "Dni: " + nuevoUsuario.dni + "<br>" + "Dia: " + nuevoUsuario.dia,
             icon: "success",
             showClass: {
                 popup: "animate__animated animate__fadeInDown",
@@ -80,8 +80,6 @@ function hacerReserva() {
                 popup: "animate__animated animate__fadeOutUp",
             },
         });
-
-        desestructurar(nuevasReservasEnStorage);
     }
   
 }
@@ -102,7 +100,7 @@ function buscar() {
   filtrarDni == false
     ? Swal.fire({
         icon: "error",
-        title: "no existe una reserva con ese dni...",
+        title: "No existe una reserva con ese dni...",
         text: "Debe ingresar un Dni con el que haya hecho una reserva, o hacer una reserva con el Dni ingresado. (Este campo solo acepta entrada numerica)",
       })
     : Swal.fire({
@@ -135,7 +133,7 @@ function cancelar() {
 
   reservasEnStorage.length != borrarDni.length
     ? Swal.fire({
-        title: "Su reserva fue cancelada",
+        title: "Su reserva fue cancelada con exito",
         icon: "success",
         showClass: {
           popup: "animate__animated animate__fadeInDown",
@@ -146,7 +144,32 @@ function cancelar() {
       })
     : Swal.fire({
         icon: "error",
-        title: "no existe una reserva con ese dni ...",
+        title: "No existe una reserva con ese dni ...",
         text: "Debe ingresar un Dni con el que haya hecho una reserva",
       });
+}
+function toggle(){
+        miOpinion.classList.remove("hide");
+        textDom.classList.add("hide");
+        cerrar.classList.add("hide");
+        
+}
+let miOpinion = document.getElementById("opinion");
+miOpinion.addEventListener("click",mostrarOpinion);
+function mostrarOpinion() {
+    let opinion = document.getElementById("dom");
+    opinion.innerHTML = `
+    <div class="dom" id="divDom">
+        <p id="textDom">El desarrollo y objetivo de este simulador es el de tomar reservas y guardarlas. Si usted ya tiene una reserva, puede consultarla en el campo ver "Mi reserva". Si usted quiere cancelar una reserva se hace en el campo "Cancelar mi reserva".</p>
+        <button type="button" class="buton cerrar" onclick="toggle()" id="cerrar">cerrar</button>
+    </div>
+    `
+    miOpinion.classList.toggle("hide");
+    opinion.appendChild(miOpinion)
+
+    const butonCerrar = document.getElementById("cerrar");
+    
+    butonCerrar.addEventListener("click", toggle);
+    
+   
 }

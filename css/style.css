@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: space-around;
     margin: 0 auto;
+    padding:25px;
     background: linear-gradient(45deg, #000000, #000ed9eb);
 }
 
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 100vh;
+    height: 95vh;
     width: 70%;
     border: 1px solid black;
     justify-content: space-around;
@@ -159,4 +160,30 @@
 }
 .accordion-button {
     background-color: black;
+}
+.dom{
+    background-color: white;
+}
+.hide {
+    display: none;
+}
+#dom {
+    display: flex;
+    width: 342px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: space-evenly;
+}
+#textDom {
+    margin: 0 auto;
+    width:348px;
+    padding: 20px;
+}
+.dom{
+    margin: 0 -2px;
+    border-radius: 5px;
+}
+.cerrar {
+    margin-bottom: 25px;
 }
