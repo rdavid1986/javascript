@@ -1,15 +1,7 @@
 * {
     margin: 0;
     padding: 0; 
-}
-.main {
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
-    padding:25px;
-    background: linear-gradient(45deg, #000000, #000ed9eb);
+    box-sizing: border-box;
 }
 
 .section{
@@ -20,8 +12,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 95vh;
-    width: 70%;
+    height: 100vh;
+    width: 100%;
     border: 1px solid black;
     justify-content: space-around;
     align-content: flex-start;
@@ -36,7 +28,7 @@
     width: 400px;
     margin-bottom: 50px;
     margin-top:40px;
-    margin-left: -10px;
+   margin: auto;
 }
 .left__h3 {
     color: black;

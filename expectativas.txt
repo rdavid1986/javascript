@@ -1,8 +1,8 @@
 Aplicacion de reservas
 
-- Quiero poder agregar reservas en mi pagina.
+- Agregar reservas
 
-- Quiero poder buscar y ver reservas en mi pagina.
+- Buscar y ver reservas 
 
-- Quiero poder eliminar reservas en mi pagina.
+- Eliminar reservas 
 
